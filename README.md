@@ -27,7 +27,7 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 
 ## Project Structure
 
-# In the src folder
+##### In the src folder
 
 ```plaintext
 - config/
@@ -77,23 +77,101 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 
 ## API Endpoints
 
-1. Upload Image
+### 1. Upload Image
 
-   ### Endpoint: POST /api/v1/upload
-   ### Description: Upload an image.
-   ### Request Body: Form data with an image file.
-   ### Response:
-   ### Success: 200 OK
+    Endpoint-> POST: /upload
 
-   ```
-     {
-   "success": true,
-   "message": "Image Uploaded Successfully",
-   "savedImage": {
+##### Description: Upload an image.
+
+##### Request Body: Form data with an image file.
+
+##### Response:
+
+     Success: 200 OK
+
+```
+  {
+"success": true,
+"message": "Image Uploaded Successfully",
+"savedImage": {
+ "_id": "unique-image-id",
+ "path": "uploads/image-1705611999866.png",
+ "__v": 0
+}
+}
+
+```
+
+Failure: 400 Bad Request, 500 Internal Server Error
+
+### 2. Get Single Image
+
+##### Endpoint: GET /get_image/:imageId
+
+##### Description: Get details of a single uploaded image.
+
+##### Response:
+
+     Success: 201 Created with image details
+
+```
+{
+  "success": true,
+  "message": "Request Successfully",
+  "image": {
     "_id": "unique-image-id",
-    "path": "public/uploads/your-image.jpg",
+    "path":"uploads/image-1705611999866.png",
     "__v": 0
-   }
-   }
+  }
+}
 
-   ```
+```
+
+Failure: 404 Not Found, 500 Internal Server Error
+
+### 3. Get All Images
+
+##### Endpoint-> GET /api/v1/get_images
+
+##### Description: Get details of all uploaded images.
+
+##### Response:
+
+     Success: 201 Created with an array of image details
+
+```
+ {
+  "success": true,
+  "message": "View all images successfully",
+  "images": [
+    {
+      "_id": "unique-image-id",
+      "path": "uploads/image-1705611999866.png",
+      "__v": 0
+    },
+    {
+      "_id": "unique-image-id",
+      "path": "uploads/image-1705611999866.png",
+      "__v": 0
+    },
+  ]
+}
+
+```
+
+## Usage
+
+Use the following examples or code snippets to interact with the API:
+
+### Example 1: Uploading an Image
+
+curl -X POST -F "image=@path/to/your-image.jpg" http://localhost:5000/upload
+
+### Example 2: Get Single Image
+
+curl http://localhost:5000/get_image/unique-image-id
+
+### Example 3: Get All Images
+
+curl http://localhost:5000/get_images
+

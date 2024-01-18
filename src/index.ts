@@ -18,7 +18,7 @@ app.use(express.static('public'))
 connectToDB()
   .then(() => {
     // route
-    app.use("/api/v1/", routers)
+    app.use(routers)
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
