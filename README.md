@@ -79,11 +79,11 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 
 1. Upload Image
 
-   # Endpoint: POST /api/v1/upload
-   # Description: Upload an image.
-   # Request Body: Form data with an image file.
-   # Response:
-   # Success: 200 OK
+   ### Endpoint: POST /api/v1/upload
+   ### Description: Upload an image.
+   ### Request Body: Form data with an image file.
+   ### Response:
+   ### Success: 200 OK
 
    ```
      {
