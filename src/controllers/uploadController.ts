@@ -30,13 +30,13 @@ export const uploadImage = async (req: Request, res: Response) => {
       path: image?.path.replace(/\\/g, "/").replace("public/", "")
     });
     const savedImage = await newImage.save();
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       message: "Image Uploaded Successfully",
       savedImage,
     })
   } catch (err) {
-    res.status(500).json({ succes: false, error: err })
+    res.status(404).json({ succes: false, error: err })
   }
 }
 
@@ -48,14 +48,14 @@ export const getImage = async (req: Request, res: Response) => {
     const image = await uploadModel.findById(imageId)
     if (image) {
       res
-        .status(201)
+        .status(200)
         .json({ success: true, message: "Request Successfully", image })
     } else {
       res.status(404).json({ success: false, error: "Image not found" })
     }
   } catch (error : any) {
     console.error(error)
-    res.status(500).json({ success: false, message: error.message})
+    res.status(404).json({ success: false, message: error.message})
   }
 }
 
@@ -66,7 +66,7 @@ export const getAllImages = async (req: Request, res: Response) => {
   try {
     const images = await uploadModel.find()
     if (images) {
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         message: "View all images successfully",
         images,
@@ -76,6 +76,6 @@ export const getAllImages = async (req: Request, res: Response) => {
     }
   } catch (err: any) {
     console.log(err.message);
-    res.status(500).json({ success: false, message: err.message })
+    res.status(404).json({ success: false, message: err.message })
   }
 }

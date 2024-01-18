@@ -29,7 +29,7 @@ connectToDB()
 
     // handle database connection error
     app.get("*", (req: Request, res: Response) => {
-      res.status(500).json({
+      res.status(404).json({
         success: false,
         message:  err.message
       })
