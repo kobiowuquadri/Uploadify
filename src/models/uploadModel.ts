@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// model set up
 const uploadSchema = new mongoose.Schema({
     path:{
         type:String,

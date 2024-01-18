@@ -5,7 +5,7 @@ import { handleMulterErrors } from '../middlewares/multerConfig'
 const routers = express.Router()
 
 
-routers.post('/upload', upload.single('image'), handleMulterErrors, uploadImage);
+routers.post('/upload', upload.single('image'), handleMulterErrors, uploadImage)
 
 routers.get('/get_image/:imageId', getImage)
 

@@ -1,26 +1,29 @@
-import { Request, Response } from "express";
-import uploadModel from "../models/uploadModel";
-import path from "path";
+import { Request, Response } from "express"
+import uploadModel from "../models/uploadModel"
+import path from "path"
+
+
+// Upload Image Logic
 
 export const uploadImage = async (req: Request, res: Response) => {
   try {
-    const image = req.file;
+    const image = req.file
     if (!image) {
       return res
         .status(400)
-        .json({ success: false, message: "No image file provided." });
+        .json({ success: false, message: "No image file provided!" })
     }
 
-    // Check if the file is an image and the extention are ( ".jpg", ".jpeg", ".png", ".gif")
-    const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
-    const fileExtension = path.extname(image.originalname).toLowerCase();
+    // validate image
+    const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif"]
+    const fileExtension = path.extname(image.originalname).toLowerCase()
 
     if (!allowedExtensions.includes(fileExtension)) {
       return res.status(400).json({
         success: false,
         message:
-          "Invalid file type, Only .jpg, .jpeg, .png, and .gif files are allowed.",
-      });
+          "Invalid file type, Only .jpg, .jpeg, .png, and .gif files are allowed!",
+      })
     }
 
     const newImage = new uploadModel({
@@ -31,43 +34,48 @@ export const uploadImage = async (req: Request, res: Response) => {
       success: true,
       message: "Image Uploaded Successfully",
       savedImage,
-    });
+    })
   } catch (err) {
-    res.status(500).json({ succes: false, error: err });
+    res.status(500).json({ succes: false, error: err })
   }
-};
+}
+
+// Get Image (Single)
 
 export const getImage = async (req: Request, res: Response) => {
   try {
-    const { imageId } = req.params;
-    const image = await uploadModel.findById(imageId);
+    const { imageId } = req.params
+    const image = await uploadModel.findById(imageId)
     if (image) {
       res
         .status(201)
-        .json({ success: true, message: "Request Successfully", image });
+        .json({ success: true, message: "Request Successfully", image })
     } else {
-      res.status(404).json({ success: false, error: "Image not found" });
+      res.status(404).json({ success: false, error: "Image not found" })
     }
   } catch (error : any) {
-    console.error(error);
-    res.status(500).json({ success: false, message: error.message});
+    console.error(error)
+    res.status(500).json({ success: false, message: error.message})
   }
-};
+}
+
+
+// Get Images (ALL)
 
 export const getAllImages = async (req: Request, res: Response) => {
   try {
-    const images = await uploadModel.find();
+    const images = await uploadModel.find()
     if (images) {
       res.status(201).json({
         success: true,
         message: "View all images successfully",
         images,
-      });
+      })
     } else {
-      res.status(404).json({ success: false, message: "Images Not Found!" });
+      res.status(404).json({ success: false, message: "Images Not Found!" })
     }
   } catch (err: any) {
     console.log(err.message);
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: err.message })
   }
-};
+}
