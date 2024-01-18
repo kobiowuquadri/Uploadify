@@ -24,7 +24,7 @@ export const uploadImage = async (req: Request, res: Response) => {
     }
 
     const newImage = new uploadModel({
-      path: image?.path.replace(/\\/g, "/"),
+      path: image?.path.replace(/\\/g, "/").replace("public/", "")
     });
     const savedImage = await newImage.save();
     res.status(200).json({

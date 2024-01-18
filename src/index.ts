@@ -3,6 +3,7 @@ import connectToDB from "./database/db";
 import dotenv from "dotenv";
 import routers from "./routes/uploadRoutes";
 import { config } from "./config/config";
+
 import path from "path";
 dotenv.config();
 
@@ -11,9 +12,7 @@ const PORT = config.server.port;
 
 // Middlewares
 app.use(express.json());
-
-// Express static file middleware
-app.use("/uploads", express.static(path.join(__dirname, "public", "uploads")));
+app.use(express.static('public'))
 
 
 // connect to db
