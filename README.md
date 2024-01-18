@@ -105,9 +105,10 @@ Failure: 400 Bad Request, 500 Internal Server Error
 
 ### 2. Get Single Image
 
-##### Endpoint: GET /get_image/:imageId
+##### Endpoint: GET: /get_image/:imageId
 
 ##### Description: Get details of a single uploaded image.
+       replace: imageId with the image id
 
 ##### Response:
 
@@ -130,7 +131,7 @@ Failure: 404 Not Found, 500 Internal Server Error
 
 ### 3. Get All Images
 
-##### Endpoint-> GET /api/v1/get_images
+##### Endpoint-> GET: /api/v1/get_images
 
 ##### Description: Get details of all uploaded images.
 
@@ -169,6 +170,7 @@ curl -X POST -F "image=@path/to/your-image.jpg" ```http://localhost:5000/upload`
 ### Example 2: Get Single Image
 
 curl ```http://localhost:5000/get_image/unique-image-id```
+#### "unique-image-id" : replace with the image id
 
 ### Example 3: Get All Images
 
