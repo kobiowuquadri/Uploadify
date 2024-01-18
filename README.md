@@ -10,7 +10,6 @@ Uploadify is a Node.js application that provides API endpoints for uploading, re
 - [Setting Up the Project](#setting-up-the-project)
 - [API Endpoints](#api-endpoints)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
@@ -174,4 +173,9 @@ curl http://localhost:5000/get_image/unique-image-id
 ### Example 3: Get All Images
 
 curl http://localhost:5000/get_images
+
+## License
+This project is licensed under the MIT License.
+
+### Thank you 😎
 
