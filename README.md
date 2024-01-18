@@ -27,6 +27,8 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 
 ## Project Structure
 
+# In the src folder
+
 ```plaintext
 - config/
   - config.ts
@@ -45,7 +47,34 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 ```
 
 ## Setting Up the Project
+
 1. Clone or download this repository to your local machine.
 
-git clone https://github.com/your-username/uploadify.git
-cd uploadify
+```plaintext
+ git clone https://github.com/kobiowuquadri/Uploadify.git
+ cd uploadify
+```
+
+2. Install dependencies:
+
+```plaintext
+ npm install
+```
+
+3. Create a .env file:
+   Create a .env file in the root of your project with the following content:
+
+```plaintext
+ MONGODB_USERNAME=your-mongodb-username
+ MONGODB_PASSWORD=your-mongodb-password
+ PORT= your-port
+```
+
+4. Start the server:
+   ```plaintext
+   nodemon
+   ```
+
+## API Endpoints
+
+1. Upload Image
