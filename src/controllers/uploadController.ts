@@ -41,9 +41,9 @@ export const uploadImage = async (req: Request, res: Response) => {
 export const getImage = async (req: Request, res: Response) => {
  try {
   const { imageId } = req.params
-  const image = await uploadModel.findOne({imageId})
+  const image = await uploadModel.findById(imageId)
   if(image){
-    res.sendFile(image.path)
+    res.status(201).json({success: true, message: "Request Successfully", image})
   }
   else {
     res.status(404).json({ error: 'Image not found' });
