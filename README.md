@@ -78,3 +78,22 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 ## API Endpoints
 
 1. Upload Image
+
+   Endpoint: POST /api/v1/upload
+   Description: Upload an image.
+   Request Body: Form data with an image file.
+   Response:
+   Success: 200 OK
+
+   ```
+     {
+   "success": true,
+   "message": "Image Uploaded Successfully",
+   "savedImage": {
+    "_id": "unique-image-id",
+    "path": "public/uploads/your-image.jpg",
+    "__v": 0
+   }
+   }
+
+   ```
