@@ -164,15 +164,23 @@ Use the following examples or code snippets to interact with the API:
 
 ### Example 1: Uploading an Image
 
-curl -X POST -F "image=@path/to/your-image.jpg" http://localhost:5000/upload
+curl -X POST -F "image=@path/to/your-image.jpg" ```http://localhost:5000/upload```
 
 ### Example 2: Get Single Image
 
-curl http://localhost:5000/get_image/unique-image-id
+curl ```http://localhost:5000/get_image/unique-image-id```
 
 ### Example 3: Get All Images
 
-curl http://localhost:5000/get_images
+curl ```http://localhost:5000/get_images```
+
+## Viewing Static Images on the Web
+To view static images on the web, use the following pattern:
+
+```
+ http://localhost:5000/uploads/your-image-filename.png
+```
+#### Replace "your-image-filename.png" with the actual filename of the image you want to view. This URL follows the structure of the static file path and allows you to access the image directly through a web browser.
 
 ## License
 This project is licensed under the MIT License.
