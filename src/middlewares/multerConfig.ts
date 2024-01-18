@@ -30,7 +30,7 @@ export const handleMulterErrors = (err: any, req: Request, res: Response, next: 
   if (err instanceof multer.MulterError) {
     return res.status(400).json({ success: false, error: err.message });
   } else if (err) {
-    return res.status(500).json({ success: false, error: "Internal Server Error", errorMessage: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
   next();
 };
