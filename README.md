@@ -135,7 +135,7 @@ Failure: 404 Not Found, 500 Internal Server Error
 
 ### 3. Get All Images
 
-##### Endpoint-> GET: /api/v1/get_images
+##### Endpoint-> GET: /get_images
 
 ##### Description: Get details of all uploaded images.
 
