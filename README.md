@@ -89,14 +89,16 @@ Uploadify allows users to upload images, retrieve details of a single image, and
      Success: 201 Created
 
 ```
-  {
-"success": true,
-"message": "Image Uploaded Successfully",
-"savedImage": {
- "_id": "unique-image-id",
- "path": "uploads/image-1705611999866.png",
- "__v": 0
-}
+{
+    "success": true,
+    "message": "Image Uploaded Successfully",
+    "savedImage": {
+        "path": "uploads/image-1705622101980.jpg",
+        "_id": "65a9ba56e77a61439e29a142",
+        "createdAt": "2024-01-18T23:55:02.032Z",
+        "updatedAt": "2024-01-18T23:55:02.032Z",
+        "__v": 0
+    }
 }
 
 ```
@@ -116,13 +118,15 @@ Failure: 400 Bad Request, 500 Internal Server Error
 
 ```
 {
-  "success": true,
-  "message": "Request Successfully",
-  "image": {
-    "_id": "unique-image-id",
-    "path":"uploads/image-1705611999866.png",
-    "__v": 0
-  }
+    "success": true,
+    "message": "Request Successfully",
+    "image": {
+        "_id": "65a9ba56e77a61439e29a142",
+        "path": "uploads/image-1705622101980.jpg",
+        "createdAt": "2024-01-18T23:55:02.032Z",
+        "updatedAt": "2024-01-18T23:55:02.032Z",
+        "__v": 0
+    }
 }
 
 ```
@@ -140,21 +144,18 @@ Failure: 404 Not Found, 500 Internal Server Error
      Success: 200 Ok 
 
 ```
- {
-  "success": true,
-  "message": "View all images successfully",
-  "images": [
-    {
-      "_id": "unique-image-id",
-      "path": "uploads/image-1705611999866.png",
-      "__v": 0
-    },
-    {
-      "_id": "unique-image-id",
-      "path": "uploads/image-1705611999866.png",
-      "__v": 0
-    },
-  ]
+{
+    "success": true,
+    "message": "View all images successfully",
+    "images": [
+        {
+            "_id": "65a9ba56e77a61439e29a142",
+            "path": "uploads/image-1705622101980.jpg",
+            "createdAt": "2024-01-18T23:55:02.032Z",
+            "updatedAt": "2024-01-18T23:55:02.032Z",
+            "__v": 0
+        }
+    ]
 }
 
 ```
