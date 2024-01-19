@@ -86,7 +86,7 @@ Uploadify allows users to upload images, retrieve details of a single image, and
 
 ##### Response:
 
-     Success: 200 OK
+     Success: 201 Created
 
 ```
   {
@@ -112,7 +112,7 @@ Failure: 400 Bad Request, 500 Internal Server Error
 
 ##### Response:
 
-     Success: 201 Created with image details
+     Success: 200 Ok
 
 ```
 {
@@ -137,7 +137,7 @@ Failure: 404 Not Found, 500 Internal Server Error
 
 ##### Response:
 
-     Success: 201 Created with an array of image details
+     Success: 200 Ok 
 
 ```
  {
